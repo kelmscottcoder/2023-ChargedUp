@@ -94,5 +94,5 @@ void Armavator::SetArmPosition(units::radian_t setpoint) {
 }
 
 void Armavator::ZeroElevatorEncoder() {
-    elevator->ZeroEncoder();
+//    elevator->ZeroEncoder();
 }

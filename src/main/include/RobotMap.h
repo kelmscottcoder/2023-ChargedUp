@@ -29,15 +29,6 @@
 
 
 struct RobotMap {
-  struct Intake {
-    wom::MotorVoltageController intakeMotor{ new WPI_TalonSRX(99) };
-
-    IntakeConfig config{
-      &intakeMotor
-    };
-  }; 
-  Intake intakeSystem;
-
   struct Controllers {    
     //sets driver station numbers for the controllers
     frc::XboxController driver{0};
@@ -149,11 +140,11 @@ struct RobotMap {
     // Setting the PID path and values to be used for SwerveDrive and SwerveModules
     wom::SwerveModule::angle_pid_conf_t anglePID {
       "/drivetrain/pid/angle/config",
-      14_V / 180_deg,
+      14.8_V / 180_deg,
       0.0_V / (100_deg * 1_s),
       0_V / (100_deg / 1_s),
-      1_deg,
-      0.5_deg / 2_s
+      // 1_deg,
+      // 0.5_deg / 2_s
     };
     wom::SwerveModule::velocity_pid_conf_t velocityPID{
       "/drivetrain/pid/velocity/config",
