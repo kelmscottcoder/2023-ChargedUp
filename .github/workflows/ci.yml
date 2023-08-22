@@ -1,0 +1,23 @@
+name: Build Check
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  Ubuntu:
+
+    runs-on: ubuntu-latest
+
+    steps: 
+    - uses: actions/checkout@v3
+    - uses: spacey-sooty/Actions-For-GradleRIO@master
+      with:
+        os: ubuntu
+    - name: Toolchain
+      run: ./gradlew installRoboRIOToolChain
+    - name: Build
+      run: ./gradlew build
+
