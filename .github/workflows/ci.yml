@@ -18,6 +18,8 @@ jobs:
         os: ubuntu
     - name: Toolchain
       run: ./gradlew installRoboRIOToolChain
+    - name: Checkout
+      run: git clone https://github.com/curtinFRC/Wombat.git wombat
     - name: Build
       run: ./gradlew build
 
