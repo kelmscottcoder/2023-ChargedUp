@@ -2,6 +2,10 @@
 
 using namespace behaviour;
 
+std::shared_ptr<Behaviour> Taxi(Drivebase _drivebase) {
+	return make<DrivebasePoseBehaviour>(_drivebase.swerve, frc::Pose2d{0.5_m, 0_m, 0_deg})->Until(make<WaitTime>(0.5_s)); // increase distance for taxi
+}
+
 // not tested!! 
  std::shared_ptr<Behaviour> Balance(Drivebase _drivebase, Armavator *_armavator) {
    return 
@@ -22,8 +26,6 @@ using namespace behaviour;
      << make<DrivebaseBalance>(_drivebase.swerve, _drivebase.gyro); //automatically balences the robot 
 }
 
-
-
 std::shared_ptr<Behaviour> HighPlace(Armavator *_armavator, Gripper *_gripper, Drivebase _drivebase) {
 	return make<GripperAutoBehaviour>(_gripper, 2)->Until(make<WaitTime>(0.5_s))
 		<<make<ArmavatorGoToAutoSetpoint>(_armavator, 0.7_m, -40_deg)->Until(make<WaitTime>(1_s))
@@ -31,7 +33,7 @@ std::shared_ptr<Behaviour> HighPlace(Armavator *_armavator, Gripper *_gripper, D
 		<<make<ArmavatorGoToAutoSetpoint>(_armavator, 0.7_m, 172_deg)->Until(make<WaitTime>(2_s))
 		<<make<GripperAutoBehaviour>(_gripper, 1)->Until(make<WaitTime>(0.6_s))
 		<<make<GripperAutoBehaviour>(_gripper, 3)->Until(make<WaitTime>(0.6_s))
-		<<make<DrivebasePoseBehaviour>(_drivebase.swerve, frc::Pose2d{0.5_m, 0_m, 0_deg})->Until(make<WaitTime>(0.5_s)) // increase distance for taxi
+	  <<make<DrivebasePoseBehaviour>(_drivebase.swerve, frc::Pose2d{0.5_m, 0_m, 0_deg})->Until(make<WaitTime>(0.5_s)) // increase distance for taxi
 		<<make<ArmavatorGoToAutoSetpoint>(_armavator, 0_m, 0_deg)->Until(make<WaitTime>(2_s))
 		<<make<ArmavatorGoToAutoSetpoint>(_armavator, 0.7_m, 0_deg)->Until(make<WaitTime>(2_s))
 		<<make<ArmavatorGoToAutoSetpoint>(_armavator, 0.7_m, -60_deg)->Until(make<WaitTime>(2_s));
@@ -45,7 +47,7 @@ std::shared_ptr<Behaviour> MidPlace(Armavator *_armavator, Gripper *_gripper, Dr
 		<<make<ArmavatorGoToAutoSetpoint>(_armavator, 0.6_m, 180_deg, 0.5, 0.1)->Until(make<WaitTime>(1_s))
 		<<make<GripperAutoBehaviour>(_gripper, 1)->Until(make<WaitTime>(0.6_s))
 		<<make<GripperAutoBehaviour>(_gripper, 3)->Until(make<WaitTime>(0.6_s))
-		<<make<DrivebasePoseBehaviour>(_drivebase.swerve, frc::Pose2d{0.5_m, 0_m, 0_deg})->Until(make<WaitTime>(0.5_s)) // increase distance for taxi
+	  <<make<DrivebasePoseBehaviour>(_drivebase.swerve, frc::Pose2d{0.5_m, 0_m, 0_deg})->Until(make<WaitTime>(0.5_s)) // increase distance for taxi
 		<<make<ArmavatorGoToAutoSetpoint>(_armavator, 0_m, 0_deg)->Until(make<WaitTime>(2_s))
 		<<make<ArmavatorGoToAutoSetpoint>(_armavator, 0.7_m, 0_deg)->Until(make<WaitTime>(2_s))
 		<<make<ArmavatorGoToAutoSetpoint>(_armavator, 0.7_m, -60_deg)->Until(make<WaitTime>(2_s));

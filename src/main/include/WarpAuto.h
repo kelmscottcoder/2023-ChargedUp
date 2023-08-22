@@ -10,15 +10,19 @@
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/event/BooleanEvent.h>
 
+using namespace behaviour;
+
 struct Drivebase {
 	wom::SwerveDrive *swerve;
 	Pigeon2 *gyro;
 };
 
-std::shared_ptr<behaviour::Behaviour> HighPlace(Armavator *_armavator, Gripper *_gripper, Drivebase _drivebase); // first
-std::shared_ptr<behaviour::Behaviour> Balance(Drivebase _drivebase, Armavator *_armavator); // second
-std::shared_ptr<behaviour::Behaviour> MidPlace(Armavator *_armavator, Gripper *_gripper, Drivebase _drivebase);
-// std::shared_ptr<behaviour::Behaviour> BalanceAndHighPlace(); // third
+std::shared_ptr<Behaviour> Taxi(Drivebase _drivebase);
+std::shared_ptr<Behaviour> HighPlace(Armavator *_armavator, Gripper *_gripper, Drivebase _drivebase); // first
+std::shared_ptr<Behaviour> Balance(Drivebase _drivebase, Armavator *_armavator); // second
+std::shared_ptr<Behaviour> MidPlace(Armavator *_armavator, Gripper *_gripper, Drivebase _drivebase);
+std::shared_ptr<Behaviour> BalanceAndHighPlace(Drivebase _drivebase, Armavator *_armavator, Gripper *_gripper); // third
+std::shared_ptr<Behaviour> BalanceAndMidPlace(Drivebase _drivebase, Armavator *_armavator, Gripper *_gripper);
 // std::shared_ptr<behaviour::Behaviour> BalanceGrabAndHighPlace(); // fourth
 // std::shared_ptr<behaviour::Behaviour> Steal(); // fifth
 // std::shared_ptr<behaviour::Behaviour> Quad(); // last
