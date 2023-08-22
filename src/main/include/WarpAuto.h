@@ -17,7 +17,7 @@ struct Drivebase {
 	Pigeon2 *gyro;
 };
 
-std::shared_ptr<Behaviour> Taxi(Drivebase _drivebase);
+std::shared_ptr<Behaviour> Taxi(Drivebase _drivebase, Armavator *_armavator);
 std::shared_ptr<Behaviour> HighPlace(Armavator *_armavator, Gripper *_gripper, Drivebase _drivebase); // first
 std::shared_ptr<Behaviour> Balance(Drivebase _drivebase, Armavator *_armavator); // second
 std::shared_ptr<Behaviour> MidPlace(Armavator *_armavator, Gripper *_gripper, Drivebase _drivebase);

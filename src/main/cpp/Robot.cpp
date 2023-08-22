@@ -149,7 +149,8 @@ void Robot::AutonomousInit() {
   //     sched->Schedule(Balence(Drivebase{swerve, &map.swerveBase.gyro}, armavator));
   //   } else {}
   	// sched->Schedule(HighPlace(armavator, gripper, Drivebase{swerve, &map.swerveBase.gyro}));
-  	sched->Schedule(MidPlace(armavator, gripper, Drivebase{swerve, &map.swerveBase.gyro}));
+  	// sched->Schedule(MidPlace(armavator, gripper, Drivebase{swerve, &map.swerveBase.gyro}));
+    sched->Schedule(Taxi(Drivebase{swerve, &map.swerveBase.gyro}, armavator));
 }
 void Robot::AutonomousPeriodic() {
 //  warpAuto.m_autoSelected = m_chooser.GetSelected(); //get the selected auto mod	

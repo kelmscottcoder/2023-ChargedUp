@@ -2,8 +2,10 @@
 
 using namespace behaviour;
 
-std::shared_ptr<Behaviour> Taxi(Drivebase _drivebase) {
-	return make<DrivebasePoseBehaviour>(_drivebase.swerve, frc::Pose2d{0.5_m, 0_m, 0_deg})->Until(make<WaitTime>(0.5_s)); // increase distance for taxi
+// test
+std::shared_ptr<Behaviour> Taxi(Drivebase _drivebase, Armavator *_armavator) {
+	return make<DrivebasePoseBehaviour>(_drivebase.swerve, frc::Pose2d{0.5_m, 0_m, 0_deg})->Until(make<WaitTime>(5_s)) // increase distance for taxi
+  <<make<ArmavatorGoToAutoSetpoint>(_armavator, 0_m, 0_deg)->Until(make<WaitTime>(5_s));
 }
 
 // not tested!! 
