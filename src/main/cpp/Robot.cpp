@@ -228,9 +228,10 @@ void Robot::TeleopPeriodic() {
 
   //when the b button is pressed, interupt currently running behaviours
   if (map.controllers.test.GetBButtonPressed()){
-   //  swerve->GetActiveBehaviour()->Interrupt();
-   swerve->SetIndividualTuning(1, 270_deg, 0_m / 1_s);
+   swerve->GetActiveBehaviour()->Interrupt();
+   // swerve->SetIndividualTuning(1, 270_deg, 0_m / 1_s);
   }
+
   if (map.controllers.test.GetXButtonPressed()) {
     swerve->SetIndividualTuning(1, 0_deg, 0_m / 1_s);
   }
