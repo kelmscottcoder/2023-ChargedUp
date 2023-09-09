@@ -31,6 +31,10 @@ jobs:
     - name: Add Toolchain
       run: ./gradlew installRoboRioToolchain
 
+    # Clone wombat
+    - name: Clone Wombat
+      run: git clone https://github.com/CurtinFRC/Wombat.git wombat
+
     # Runs a single command using the runners shell
     - name: Compile and run tests on robot code
       run: ./gradlew build
