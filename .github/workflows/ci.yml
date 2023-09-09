@@ -35,4 +35,4 @@ jobs:
     - name: Compile and run tests on robot code
       run: |
         ./gradlew installRoboRioToolchain
-        ./gradlew build
+        ./gradlew build --debug
