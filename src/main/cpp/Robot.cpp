@@ -233,7 +233,7 @@ void Robot::TeleopPeriodic() {
   }
 
   if (map.controllers.test.GetXButtonPressed()) {
-    swerve->SetIndividualTuning(1, 0_deg, 0_m / 1_s);
+    swerve->SetIndividualTun1ing(1, 0_deg, 0_m / 1_s);
   }
 
   // if (map.Controllers.test.GetAButtonPressed()) {
